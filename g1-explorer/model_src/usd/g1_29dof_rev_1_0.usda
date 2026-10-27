@@ -1,0 +1,48 @@
+#usda 1.0
+(
+    defaultPrim = "g1_29dof_rev_1_0"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "g1_29dof_rev_1_0" (
+    variants = {
+        string Physics = "PhysX"
+        string Sensor = "Sensors"
+    }
+    prepend variantSets = ["Physics", "Sensor"]
+)
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    variantSet "Physics" = {
+        "None" (
+            prepend references = @configuration/g1_29dof_rev_1_0_base.usd@
+        ) {
+            over "joints" (
+                active = false
+            )
+            {
+            }
+
+        }
+        "PhysX" (
+            prepend payload = @configuration/g1_29dof_rev_1_0_physics.usd@
+        ) {
+
+        }
+    }
+    variantSet "Sensor" = {
+        "None" {
+
+        }
+        "Sensors" (
+            prepend payload = @configuration/g1_29dof_rev_1_0_sensor.usd@
+        ) {
+
+        }
+    }
+}
+

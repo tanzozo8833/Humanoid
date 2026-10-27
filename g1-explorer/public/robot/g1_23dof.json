@@ -1,0 +1,727 @@
+{
+ "source": "g1_23dof_rev_1_0.urdf",
+ "stats": {
+  "links": 27,
+  "faces_in": 503229,
+  "faces_out": 158005
+ },
+ "joints": [
+  {
+   "name": "pelvis_contour_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "pelvis_contour_link",
+   "parent": "pelvis",
+   "origin_xyz": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_ankle_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_ankle_roll_link",
+   "parent": "left_ankle_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.2618,
+   "upper": 0.2618,
+   "effort": 35.0,
+   "velocity": 30.0,
+   "origin_xyz": [
+    0.0,
+    0.0,
+    -0.017558
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_ankle_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_ankle_pitch_link",
+   "parent": "left_knee_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -0.87267,
+   "upper": 0.5236,
+   "effort": 35.0,
+   "velocity": 30.0,
+   "origin_xyz": [
+    0.0,
+    -9.4445e-05,
+    -0.30001
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_knee_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_knee_link",
+   "parent": "left_hip_yaw_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -0.087267,
+   "upper": 2.8798,
+   "effort": 139.0,
+   "velocity": 20.0,
+   "origin_xyz": [
+    -0.078273,
+    0.0021489,
+    -0.17734
+   ],
+   "origin_rpy": [
+    0.0,
+    0.1749,
+    0.0
+   ]
+  },
+  {
+   "name": "left_hip_yaw_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_hip_yaw_link",
+   "parent": "left_hip_roll_link",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -2.7576,
+   "upper": 2.7576,
+   "effort": 88.0,
+   "velocity": 32.0,
+   "origin_xyz": [
+    0.025001,
+    0.0,
+    -0.12412
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_hip_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_hip_roll_link",
+   "parent": "left_hip_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.5236,
+   "upper": 2.9671,
+   "effort": 139.0,
+   "velocity": 20.0,
+   "origin_xyz": [
+    0.0,
+    0.052,
+    -0.030465
+   ],
+   "origin_rpy": [
+    0.0,
+    -0.1749,
+    0.0
+   ]
+  },
+  {
+   "name": "left_hip_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_hip_pitch_link",
+   "parent": "pelvis",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -2.5307,
+   "upper": 2.8798,
+   "effort": 88.0,
+   "velocity": 32.0,
+   "origin_xyz": [
+    0.0,
+    0.064452,
+    -0.1027
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_ankle_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_ankle_roll_link",
+   "parent": "right_ankle_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.2618,
+   "upper": 0.2618,
+   "effort": 35.0,
+   "velocity": 30.0,
+   "origin_xyz": [
+    0.0,
+    0.0,
+    -0.017558
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_ankle_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_ankle_pitch_link",
+   "parent": "right_knee_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -0.87267,
+   "upper": 0.5236,
+   "effort": 35.0,
+   "velocity": 30.0,
+   "origin_xyz": [
+    0.0,
+    9.4445e-05,
+    -0.30001
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_knee_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_knee_link",
+   "parent": "right_hip_yaw_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -0.087267,
+   "upper": 2.8798,
+   "effort": 139.0,
+   "velocity": 20.0,
+   "origin_xyz": [
+    -0.078273,
+    -0.0021489,
+    -0.17734
+   ],
+   "origin_rpy": [
+    0.0,
+    0.1749,
+    0.0
+   ]
+  },
+  {
+   "name": "right_hip_yaw_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_hip_yaw_link",
+   "parent": "right_hip_roll_link",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -2.7576,
+   "upper": 2.7576,
+   "effort": 88.0,
+   "velocity": 32.0,
+   "origin_xyz": [
+    0.025001,
+    0.0,
+    -0.12412
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_hip_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_hip_roll_link",
+   "parent": "right_hip_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -2.9671,
+   "upper": 0.5236,
+   "effort": 139.0,
+   "velocity": 20.0,
+   "origin_xyz": [
+    0.0,
+    -0.052,
+    -0.030465
+   ],
+   "origin_rpy": [
+    0.0,
+    -0.1749,
+    0.0
+   ]
+  },
+  {
+   "name": "right_hip_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_hip_pitch_link",
+   "parent": "pelvis",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -2.5307,
+   "upper": 2.8798,
+   "effort": 88.0,
+   "velocity": 32.0,
+   "origin_xyz": [
+    0.0,
+    -0.064452,
+    -0.1027
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "logo_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "logo_link",
+   "parent": "torso_link",
+   "origin_xyz": [
+    0.0039635,
+    0.0,
+    -0.044
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "head_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "head_link",
+   "parent": "torso_link",
+   "origin_xyz": [
+    0.0039635,
+    0.0,
+    -0.044
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "imu_in_torso_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "imu_in_torso",
+   "parent": "torso_link",
+   "origin_xyz": [
+    -0.03959,
+    -0.00224,
+    0.14792
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "d435_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "d435_link",
+   "parent": "torso_link",
+   "origin_xyz": [
+    0.0576235,
+    0.01753,
+    0.42987
+   ],
+   "origin_rpy": [
+    0.0,
+    0.8307767239493009,
+    0.0
+   ]
+  },
+  {
+   "name": "mid360_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "mid360_link",
+   "parent": "torso_link",
+   "origin_xyz": [
+    0.0002835,
+    3e-05,
+    0.428434
+   ],
+   "origin_rpy": [
+    3.141592653589793,
+    0.05112069379091391,
+    0.0
+   ]
+  },
+  {
+   "name": "left_wrist_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_wrist_roll_rubber_hand",
+   "parent": "left_elbow_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -1.972222054,
+   "upper": 1.972222054,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.1,
+    0.00188791,
+    -0.01
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_elbow_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_elbow_link",
+   "parent": "left_shoulder_yaw_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -1.0472,
+   "upper": 2.0944,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.015783,
+    0.0,
+    -0.080518
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_shoulder_yaw_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_shoulder_yaw_link",
+   "parent": "left_shoulder_roll_link",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -2.618,
+   "upper": 2.618,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0,
+    0.00624,
+    -0.1032
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_shoulder_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_shoulder_roll_link",
+   "parent": "left_shoulder_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -1.5882,
+   "upper": 2.2515,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0,
+    0.038,
+    -0.013831
+   ],
+   "origin_rpy": [
+    -0.27925,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "left_shoulder_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "left_shoulder_pitch_link",
+   "parent": "torso_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -3.0892,
+   "upper": 2.6704,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0039563,
+    0.10022,
+    0.24778
+   ],
+   "origin_rpy": [
+    0.27931,
+    5.4949e-05,
+    -0.00019159
+   ]
+  },
+  {
+   "name": "right_wrist_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_wrist_roll_rubber_hand",
+   "parent": "right_elbow_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -1.972222054,
+   "upper": 1.972222054,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.1,
+    -0.00188791,
+    -0.01
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_elbow_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_elbow_link",
+   "parent": "right_shoulder_yaw_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -1.0472,
+   "upper": 2.0944,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.015783,
+    0.0,
+    -0.080518
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_shoulder_yaw_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_shoulder_yaw_link",
+   "parent": "right_shoulder_roll_link",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -2.618,
+   "upper": 2.618,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0,
+    -0.00624,
+    -0.1032
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_shoulder_roll_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_shoulder_roll_link",
+   "parent": "right_shoulder_pitch_link",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -2.2515,
+   "upper": 1.5882,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0,
+    -0.038,
+    -0.013831
+   ],
+   "origin_rpy": [
+    0.27925,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "right_shoulder_pitch_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "right_shoulder_pitch_link",
+   "parent": "torso_link",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": -3.0892,
+   "upper": 2.6704,
+   "effort": 25.0,
+   "velocity": 37.0,
+   "origin_xyz": [
+    0.0039563,
+    -0.10021,
+    0.24778
+   ],
+   "origin_rpy": [
+    -0.27931,
+    5.4949e-05,
+    0.00019159
+   ]
+  },
+  {
+   "name": "waist_yaw_joint",
+   "joint": true,
+   "type": "revolute",
+   "child": "torso_link",
+   "parent": "pelvis",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -2.618,
+   "upper": 2.618,
+   "effort": 88.0,
+   "velocity": 32.0,
+   "origin_xyz": [
+    -0.0039635,
+    0.0,
+    0.044
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "imu_in_pelvis_joint",
+   "joint": true,
+   "type": "fixed",
+   "child": "imu_in_pelvis",
+   "parent": "pelvis",
+   "origin_xyz": [
+    0.04525,
+    0.0,
+    -0.08339
+   ],
+   "origin_rpy": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ ]
+}
