@@ -18,7 +18,7 @@ GĐ0 Công cụ + toán nền          "Mình cần dụng cụ gì để học?
                  ├─ GĐ5 Cân bằng cổ điển   "Vì sao robot 2 chân đứng / đi được?"   (lý thuyết ZMP, LIPM)
                  │   └─ GĐ6 Học tăng cường "Unitree thực sự làm G1 đi bằng cách nào?"
                  ├─ GĐ7 Tay + thao tác     "Cầm nắm, điều khiển từ xa thế nào?"   (cần IK của GĐ2)
-                 └─ GĐ8 Cảm nhận           "Robot biết mình ở đâu, thấy gì?"
+                 └─ GĐ8 Cảm nhận + điều hướng + tương tác  "Robot biết mình ở đâu, thấy gì, nghe gì?"
                          └─ GĐ9 Robot thật → GĐ10 Dự án tổng hợp
 ```
 
@@ -40,18 +40,18 @@ Ký hiệu: 📖 học/đọc · 🧪 bài thực hành (code) · 🛠 cải thi
 | GĐ | Chủ đề | ⏱ | Đầu ra chính |
 |---|---|---|---|
 | 0 | Công cụ + toán nền | 1–2 tuần | Môi trường chạy được, thư viện phép quay tự viết |
-| 1 | Cấu tạo | 2 tuần | Sơ đồ khối hệ thống, parser URDF, câu hỏi tự kiểm tra trên web |
+| 1 | Cấu tạo + robot làm được gì | 2–3 tuần | Sơ đồ khối hệ thống, parser URDF, bảng năng lực, câu hỏi tự kiểm tra trên web |
 | 2 | Động học | 3 tuần | FK/IK tự viết, kéo tay robot trên web |
-| 3 | Động lực học + actuator | 3 tuần | Mô-men trọng lực từng khớp, PD trong MuJoCo |
-| 4 | Phần mềm, DDS, SDK, ROS 2 | 3 tuần | Tự điều khiển G1 trong sim qua `rt/lowcmd`, web xem trạng thái live |
+| 3 | Động lực học + actuator | 3–4 tuần | Mô-men trọng lực từng khớp, PD trong MuJoCo, nhận dạng actuator |
+| 4 | Phần mềm, DDS, SDK, ROS 2, toàn bộ API | 4 tuần | Tự điều khiển G1 trong sim, đủ mọi API, tay cầm, bảo vệ, bảo mật |
 | 5 | Cân bằng, đi bộ cổ điển | 2–3 tuần | Demo LIPM / capture point, đứng chịu đẩy trong sim |
-| 6 | Học tăng cường | 4 tuần | Policy tự train chạy trong MuJoCo |
+| 6 | Học tăng cường | 5 tuần | Policy tự train chạy trong MuJoCo, ngã/đứng dậy, điều khiển toàn thân |
 | 7 | Tay, thao tác, teleop | 3 tuần | Điều khiển tay trên nền đi bộ, retarget bàn tay |
-| 8 | Cảm nhận, định vị | 3 tuần | Ước lượng tư thế, point cloud trên web |
-| 9 | Robot thật | khi có robot | Quy trình an toàn, đo sai khác sim ↔ thật |
+| 8 | Cảm nhận, điều hướng, tương tác | 4–5 tuần | Point cloud, đi tới đích tránh vật, bám người, ra lệnh bằng giọng nói |
+| 9 | Robot thật, Jetson, vận hành | khi có robot | Quy trình an toàn, đo sai khác sim ↔ thật, chạy trên PC2 |
 | 10 | Dự án tổng hợp | 2–4 tuần | Một tính năng hoàn chỉnh + báo cáo |
 
-Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có thể đổi thứ tự cho nhau sau khi xong GĐ4.
+Tổng cộng khoảng **8–9 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có thể đổi thứ tự cho nhau sau khi xong GĐ4.
 
 ---
 
@@ -125,6 +125,11 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
   - 🛠 Thêm trường `quiz: [{q, a}]` cho từng phần trong `parts.js`. Panel bộ phận có nút "Tự kiểm tra" (ẩn đáp án, bấm để xem). Viết câu hỏi từ chính ghi chú T1.1–T1.7.
   - ✅ Mỗi bộ phận chính có ≥3 câu, test T0.4 vẫn qua.
 
+- [ ] **T1.9 Robot làm được gì, không làm được gì (dưới góc độ sản phẩm)**
+  - 📖 Thông số chính thức: tốc độ, tải tay, thời gian pin, tầm khớp, môi trường cho phép. Các dòng G1: bản thường 23 DoF, EDU 29 DoF, G1+ có cổ, G1-D có bánh (service `agv` trong `unitree_sdk2/include/unitree/robot/g1/agv/`). Cách vận hành thực tế: bật/tắt, tay cầm (cutaway `remote.js`), app điện thoại, chế độ debug.
+  - 🧪 Lập **bảng năng lực** `notes/capability_map.md`: mỗi khả năng → có sẵn trong firmware hay phải tự lập trình → API → task nào trong roadmap học nó (xem mục "Bản đồ năng lực" cuối file).
+  - ✅ Trả lời được: "G1 mua về làm được ngay những gì, muốn làm thêm thì phải học gì".
+
 **🏁 Mốc GĐ1:** giải thích cho người khác trong 10 phút "G1 hoạt động thế nào" từ pin đến bàn chân.
 
 ---
@@ -191,6 +196,11 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
   - 🧪 Script riêng: thả G1 rơi tự do; treo pelvis cố định rồi giữ tư thế bằng PD (có / không bù trọng lực); ghi mô-men các khớp và so với T3.1.
   - ✅ Có đồ thị mô-men theo thời gian; hiểu khác biệt giữa sim 500 Hz và điều khiển 50 Hz.
 
+- [ ] **T3.5 Nhận dạng hệ thống actuator (system identification)**
+  - 📖 Ma sát (Coulomb + nhớt), quán tính rotor quy về khớp (armature), bão hoà mô-men theo tốc độ (T-N), độ trễ. Đây là lý do chính khiến policy chạy tốt trong sim nhưng hỏng trên robot thật. Đọc mô hình actuator trong `unitree_rl_lab` và tham số `armature` / `damping` / `frictionloss` trong MJCF g1.
+  - 🧪 Trong MuJoCo: cho 1 khớp chạy theo tín hiệu chirp, ghi lại (q, τ), rồi tự ước lượng lại ma sát và armature bằng bình phương tối thiểu. So với giá trị đã đặt.
+  - ✅ Ước lượng sai < 10%; giải thích được "sim2real gap" đến từ đâu.
+
 **🏁 Mốc GĐ3:** giải thích được vì sao khớp gối và hông pitch dùng motor lớn nhất (7520), dựa trên số liệu tự tính.
 
 ---
@@ -227,6 +237,21 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
   - 📖 ROS 2 Humble: node, topic, tf2, `robot_state_publisher`, RViz2. `unitree_ros2` (cầu DDS trực tiếp, không cần bridge).
   - 🧪 Trong WSL: hiển thị URDF G1 trên RViz2; viết node đọc `lowstate` từ sim → publish `/joint_states` → RViz2 cử động theo sim.
   - ✅ RViz2 và web cùng hiện một tư thế.
+
+- [ ] **T4.7 Đi hết danh mục chức năng của robot**
+  - 📖 Mở từng header trong `unitree_sdk2/include/unitree/robot/g1/` (`loco`, `arm`, `audio`, `agv`) và đi qua **mọi** API id. Ví dụ LocoClient: 7001–7006 (đọc FSM, chế độ cân bằng, độ cao nhấc chân, độ cao đứng), 7101–7107 (đặt FSM, cân bằng, swing height, stand height, vận tốc, arm task, speed mode), **7110/7111 chuyển sang `rt/user_lowcmd`** (`g1_userctrl_dds_example.cpp`). ArmAction: 16 động tác, động tác tự dạy (7108/7113). Mimic 550xxx. Audio: TTS, phát PCM, âm lượng, LED, ASR (`rt/audio_msg`).
+  - 🛠 Tab Chức năng: thêm các API còn thiếu (swing height, GetFsmMode, user ctrl, AGV của G1-D). Mỗi chức năng ghi task học tương ứng và mức "đã hiểu / đã chạy sim / đã chạy thật".
+  - ✅ Không còn API nào trong header mà bạn không giải thích được.
+
+- [ ] **T4.8 Tay cầm điều khiển trong code**
+  - 📖 `wireless_remote[40]` trong `rt/lowstate` và `gamepad.hpp` (đã giải thích trong cutaway `remote.js`).
+  - 🧪 Viết bộ giải mã 40 byte → nút + cần analog. Trong sim: dùng tay cầm PC / bàn phím giả lập, rồi gán cần trái → vận tốc cho policy, nút → đổi trạng thái của `my_stand.py`.
+  - ✅ Điều khiển được robot trong sim bằng "tay cầm" với đúng bố cục nút như tay cầm thật.
+
+- [ ] **T4.9 Bảo vệ khi chạy và bảo mật**
+  - 📖 `unitree_sdk2/include/unitree/robot/g1/common/terminations.hpp`: các điều kiện cắt (thân nghiêng quá, pin, …) → chuyển motor sang thụ động. Bài `research/arxiv_2509.14096_G1_cybersecurity.pdf`: bề mặt tấn công của G1 (Bluetooth, Wi-Fi, DDS không xác thực, dữ liệu gửi ra ngoài) ở góc độ **phòng thủ**.
+  - 🧪 Đưa các điều kiện của `terminations.hpp` vào `my_stand.py` (T4.3), thử từng điều kiện trong sim.
+  - ✅ Danh sách: rủi ro → cách giảm thiểu (mạng tách riêng, tắt dịch vụ thừa, giám sát).
 
 **🏁 Mốc GĐ4:** tự viết từ đầu chương trình điều khiển G1 cấp thấp an toàn trong sim, và giải thích từng byte gửi đi.
 
@@ -289,6 +314,15 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
   - 🧪 So sánh phát lại động học (web hiện tại) với tracking bằng policy có vật lý: vì sao phát lại thì robot thật sẽ ngã.
   - ✅ Giải thích được khác biệt giữa động học (kinematic) và động lực (dynamic).
 
+- [ ] **T6.7 Ngã và đứng dậy**
+  - 📖 Phát hiện ngã (IMU + `terminations.hpp`), ngã an toàn (damp), đứng dậy: FSM 702 của Unitree yêu cầu nằm ngửa trên nền phẳng. Nghiên cứu policy đứng dậy học bằng RL (ví dụ bài HoST, 2025, thử trên G1).
+  - 🧪 Trong MuJoCo: đẩy robot ngã, đo khi nào phát hiện được, so damp với zero torque về vận tốc va chạm.
+  - ✅ Giải thích được vì sao đứng dậy khó hơn đi (tiếp xúc nhiều điểm, mô-men lớn).
+
+- [ ] **T6.8 Điều khiển toàn thân (whole-body control), tổng quan**
+  - 📖 Vừa đi vừa thao tác bằng tay (loco-manipulation), policy toàn thân điều khiển theo lệnh hoặc theo người (ví dụ HOMIE, 2025, trên G1). So với cách chia "chân do policy, tay do `arm_sdk`" ở T7.1.
+  - ✅ Bảng ưu/nhược điểm của 2 cách chia.
+
 **🏁 Mốc GĐ6:** tự đi hết chuỗi train → sim2sim → phân tích; giải thích từng dòng của `deploy_real.py`.
 
 ---
@@ -320,7 +354,7 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
 
 ---
 
-## GĐ8: Cảm nhận và định vị (3 tuần)
+## GĐ8: Cảm nhận, điều hướng và tương tác (4–5 tuần)
 
 - [ ] **T8.1 Ước lượng trạng thái**
   - 📖 IMU: gyro, gia tốc, trôi (bias). Bộ lọc bù (complementary filter), EKF. Ước lượng vận tốc thân từ IMU + chân chạm đất (leg odometry).
@@ -341,6 +375,25 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
   - 🛠 Nạp file PLY/PCD, đặt đúng hệ toạ độ `mid360_link` / `d435_link` trên robot 3D, tô màu theo độ cao.
   - ✅ Cloud từ T8.2/T8.3 hiện đúng vị trí trên web.
 
+- [ ] **T8.5 Điều hướng: đi tới đích, tránh vật**
+  - 📖 Bản đồ chi phí (costmap), A*, lập kế hoạch cục bộ, Nav2 (ROS 2). Đầu ra cuối cùng chỉ là lệnh `Move(vx, vy, vyaw)` cho policy đi bộ.
+  - 🧪 Trong MuJoCo: cảnh có chướng ngại → bản đồ từ T8.2/T8.3 → A* → bộ bám đường gửi lệnh vận tốc cho policy (sim_server).
+  - ✅ Robot tự đi tới đích qua 3 chướng ngại không va.
+
+- [ ] **T8.6 Thị giác ngữ nghĩa**
+  - 📖 Nhận diện vật / người (ví dụ YOLO), ước lượng tư thế người, kết hợp ảnh màu + độ sâu để ra toạ độ 3D.
+  - 🧪 Bám theo người: phát hiện người trong ảnh camera (webcam hoặc ảnh render sim) → toạ độ → lệnh vận tốc.
+  - ✅ Demo trong sim: robot đi theo một vật thể chuyển động.
+
+- [ ] **T8.7 Giọng nói và tương tác**
+  - 📖 Chuỗi ASR → hiểu ý định → TTS của G1 (`AudioClient`, `rt/audio_msg`). Dùng mô hình ngôn ngữ để đổi câu nói thành lệnh robot, **có lớp kiểm tra an toàn** (chỉ cho phép một danh sách lệnh, giới hạn vận tốc).
+  - 🧪 Chương trình: nói "đi tới 1 mét rồi vẫy tay" → lệnh có kiểm tra → chạy trong sim; LED/TTS phản hồi trên web.
+  - ✅ Lệnh nguy hiểm (zero torque, tốc độ quá giới hạn) bị chặn kể cả khi người dùng yêu cầu.
+
+- [ ] **T8.8 Mô hình nền tảng cho robot (tổng quan, xu hướng)**
+  - 📖 Vision-Language-Action (VLA), mô hình nền tảng cho humanoid, robot hiểu lệnh bằng lời và tự lập kế hoạch. Liên hệ với dữ liệu teleop (T7.3/T7.5).
+  - ✅ Viết 1 trang: hiện nay robot như G1 đã làm được gì nhờ các mô hình này, còn thiếu gì.
+
 ---
 
 ## GĐ9: Robot thật (khi có G1)
@@ -349,6 +402,8 @@ Tổng cộng khoảng **7 tháng** nếu đều đặn. GĐ5, GĐ7 và GĐ8 có
 - [ ] **T9.2 Kết nối, chỉ đọc**: mạng 192.168.123.x, đọc `lowstate` thật. So nhiễu IMU và encoder với sim (sai khác sim2real).
 - [ ] **T9.3 `robot_bridge.py` từng bước**: chỉ đọc → TTS/LED → động tác tay khi robot treo → Move tốc độ thấp.
 - [ ] **T9.4 Deploy policy tự train** (`deploy_real`), chỉ sau khi T6.4 sim2sim ổn định, bắt đầu khi treo giá.
+- [ ] **T9.5 Chạy chương trình trên máy của robot (PC2 Jetson Orin NX)**: xuất policy sang ONNX / TensorRT, vòng điều khiển thời gian thực bằng C++ (`unitree_rl_gym/deploy/deploy_real/cpp_g1`), đóng gói Docker, đo độ trễ và jitter. Có thể tập trước trên Jetson rời hoặc trong WSL.
+- [ ] **T9.6 Vận hành và bảo trì**: pin / BMS (`BmsState_`), nhiệt motor và giảm công suất khi nóng, cập nhật firmware, ghi log (rosbag / DDS record) để phân tích sau, kiểm tra cơ khí định kỳ.
 
 ---
 
@@ -360,6 +415,36 @@ Chọn 1 dự án (hoặc tự đề xuất), làm trong sim, kết hợp ≥3 g
 - **"Bắt chước người"**: webcam → tư thế người → retarget toàn thân → policy tracking (GĐ6.6 + GĐ7.4).
 
 ✅ Báo cáo cuối: mục tiêu, phương pháp, số liệu, giới hạn, video demo. Trang web có tab trình diễn.
+
+---
+
+## Bản đồ năng lực: robot làm được gì → học ở task nào
+
+Dùng để kiểm tra roadmap có thiếu gì không. Cột "Nguồn" cho biết có tự học / tự làm được hết hay không.
+
+| Năng lực | Có sẵn trong firmware? | Học / làm ở | Nguồn: tự làm được đến đâu |
+|---|---|---|---|
+| Cấu tạo, phần cứng, điện, cảm biến | - | GĐ1 (T1.1–T1.9) | Web phần 1; vài chi tiết không công bố (⚠ trong `status.md`) |
+| Trạng thái FSM: zero torque, damp, ngồi, đứng, đứng dậy | Có | T4.5, T4.7, T6.7 | Đọc API; sim không có firmware → tự viết lại tương đương |
+| Đi, chạy, quay, đi ngang, đổi độ cao, bước tại chỗ | Có | GĐ5, GĐ6, T4.7 | Policy chính thức `motion.pt` chạy được trong sim; tự train được (cloud GPU) |
+| Chịu đẩy, giữ thăng bằng | Có | T5.3, T6.5 | Đầy đủ trong sim |
+| Ngã, đứng dậy | Có (702, có điều kiện) | T6.7 | Policy đứng dậy của Unitree không công bố; học qua bài báo |
+| Vẫy tay, bắt tay, 16 động tác tay, động tác tự dạy | Có | T4.5, T4.7 | Quỹ đạo nằm trong firmware, không công bố |
+| Nhảy, bắt chước chuyển động (mimic) | Có (550xxx) + repo | T6.6 | Dữ liệu + code train trong `unitree_rl_lab` |
+| Tay điều khiển riêng khi đang đi (`arm_sdk`) | Có | T7.1 | Đầy đủ |
+| Bàn tay Dex3 / Inspire / Dex1, xúc giác | Có (driver) | T1.5, T7.2, T7.4 | Mô phỏng tay hạn chế |
+| Điều khiển cấp thấp 29 motor | Có (`rt/lowcmd`, `rt/user_lowcmd`) | T4.1–T4.3, T4.7 | Đầy đủ trong sim |
+| Tay cầm điều khiển | Có | T1.9, T4.8 | Đầy đủ (giao thức 40 byte) |
+| Giọng nói, ASR, TTS, loa, LED | Có | T4.7, T8.7 | ASR/TTS chạy trên robot; trên máy dùng thay thế |
+| Camera độ sâu, LiDAR, SLAM | Driver có, SLAM tự làm | T8.2, T8.3, T8.4 | Đầy đủ với dữ liệu mẫu |
+| Điều hướng, tránh vật, bám theo người | Tự làm | T8.5, T8.6 | Đầy đủ trong sim |
+| Điều khiển từ xa bằng XR, thu dữ liệu | Repo | T7.3 | Cần kính XR để chạy thật |
+| Học bắt chước, VLA, hiểu lệnh bằng lời | Tự làm | T7.5, T8.7, T8.8 | Cần dữ liệu / GPU |
+| Điều khiển toàn thân, vừa đi vừa thao tác | Tự làm | T6.8, T7.1 | Nghiên cứu |
+| ROS 2, chạy trên Jetson, vận hành, an toàn, bảo mật | - | T4.6, T4.9, GĐ9 | Phần chạy thật cần robot |
+| G1-D (bánh xe), G1+ (cổ) | Có | T1.2, T1.9, T4.7 | Biết qua URDF / SDK, không có robot thì chỉ đọc hiểu |
+
+**Những gì không học hết được từ nguồn công khai:** code điều khiển bên trong firmware Unitree (bộ đi chính thức, quỹ đạo động tác tay, đứng dậy 702, ASR); firmware driver motor (các chip đã bị xoá nhãn); và mọi thứ cần đo trên robot thật (sai khác sim2real, nhiệt, pin). Roadmap học các phần này bằng cách đọc API và **tự làm lại phiên bản tương đương** trong sim.
 
 ---
 
