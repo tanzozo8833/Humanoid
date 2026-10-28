@@ -8,6 +8,7 @@ File này để mở lại / làm tiếp sau này mà không mất context. Đ�
 - **Phase 1 - Cấu tạo (UI)**: web 3D, click bộ phận → cấu tạo vật lý chi tiết, **thật, có nguồn**, kèm giải thích cơ chế. Làm đến bộ phận nào research kỹ bộ phận đó.
 - **Phase 2 - Chức năng**: tải source code của Unitree, research và xây các chức năng humanoid làm được.
 - **Thứ tự**: xong Phase 1 mới làm Phase 2. Phase 2 hiện **TẠM DỪNG** - giữ nguyên code, chờ bạn quyết định bước tiếp theo.
+- **Lộ trình học (từ 2026-10-28)**: `ROADMAP.md` - 11 giai đoạn, task T0.1 → GĐ10, từ toán nền → cấu tạo → động học → động lực học → SDK/DDS → cân bằng → RL → tay/teleop → cảm nhận → robot thật. Phase 2 tiến hành theo các task này, mỗi lần một task do bạn chọn ("làm T2.4"). Các task 🛠 là cải thiện web.
 - Tham khảo cách làm: repo `lucnmfpt/rosmater_m3_pro` (M3Pro Manager: `robot3d.js`, `robot-parts.js`, `closeup-shell.js`, `*-viewer.js`).
 
 ## Cấu trúc thư mục `Humanoid/`
